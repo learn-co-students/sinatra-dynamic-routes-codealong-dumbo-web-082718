@@ -1,6 +1,7 @@
 require_relative 'config/environment'
 
 class App < Sinatra::Base
+# controller action that matches that URL pattern
 
   # This is a sample static route.
   get '/hello' do
@@ -14,5 +15,20 @@ class App < Sinatra::Base
   end
 
   # Code your final two routes here:
+  get "/goodbye/:name" do
+    @person_name = params[:name]
+    "Goodbye, #{@person_name}."
+  end
+
+  get '/multiply/:number1/:number2' do
+    @num1 = params[:number1]
+    @num2 = params[:number2]
+    "#{@num1.to_i * @num2.to_i}"
+        # "Hello World!"
+  end
+
+
+
+
 
 end
